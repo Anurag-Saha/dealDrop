@@ -1,10 +1,16 @@
 import AddProductFrom from "@/components/AddProductFrom";
+import AuthButton from "@/components/AuthButton";
 import { Button } from "@/components/ui/button";
+import { createClient } from "@/utils/supabase/server";
 import { Bell, LogIn, Rabbit, Shield } from "lucide-react";
 import Image from "next/image";
 
-export default function Home() {
-  const user = null;
+export default async function Home() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   const products = [];
 
@@ -42,14 +48,7 @@ export default function Home() {
             />
           </div>
           {/* auth Buttton */}
-          <Button
-            variant="default"
-            size="sm"
-            className="bg-orange-500 hover:bg-orange-600 gap-2"
-          >
-            <LogIn className="w-4 h-4" />
-            Sign in
-          </Button>
+          <AuthButton user={user} />
         </div>
       </header>
       <section className="py-20 px-4">
