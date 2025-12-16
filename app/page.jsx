@@ -1,3 +1,4 @@
+import AddProductFrom from "@/components/AddProductFrom";
 import { Button } from "@/components/ui/button";
 import { Bell, LogIn, Rabbit, Shield } from "lucide-react";
 import Image from "next/image";
@@ -65,6 +66,8 @@ export default function Home() {
           </p>
 
           {/* Add Product Form */}
+
+          <AddProductFrom user={user} />
 
           {/* Features */}
           {products.length === 0 && (
