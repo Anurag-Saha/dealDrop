@@ -17,7 +17,7 @@ const AddProductFrom = ({ user }) => {
           <Input
             type="url"
             value={url}
-            onchange={(e) => setUrl(e.target.value)}
+            onChange={(e) => setUrl(e.target.value)}
             placeholder="Enter product url (Amazon Walmart etc)"
             className="h-12 text-base"
             required
@@ -40,6 +40,8 @@ const AddProductFrom = ({ user }) => {
           </Button>
         </div>
       </form>
+
+      {/* Auth model */}
     </>
   );
 };
